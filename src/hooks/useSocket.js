@@ -14,6 +14,7 @@ export function useSocket() {
     useEffect(() => {
         const newSocket = io(process.env.BACKEND_URL, {
             forceNew: true,
+            withCredentials: true,
         });
 
         newSocket.on('user:ready', ({message}) => {
