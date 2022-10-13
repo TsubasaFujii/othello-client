@@ -12,8 +12,7 @@ export function useSocket() {
     const dialog = useDialog();
 
     useEffect(() => {
-        const URL = 'http://localhost:4000/';
-        const newSocket = io(URL, {
+        const newSocket = io(process.env.BACKEND_URL, {
             forceNew: true,
         });
 
@@ -123,6 +122,8 @@ export function useSocket() {
 
         setSocket(newSocket);
         newSocket.emit('ready');
+        // dialog shouldn't be in the list
+        //eslint-disable-next-line
     }, []);
 
     return socket;
