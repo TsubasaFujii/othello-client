@@ -18,6 +18,8 @@ export default function Root() {
             navigate('game');
             socket.emit('ready_game');
         }
+        // navigate shouldn't be in the list
+        //eslint-disable-next-line
     }, [isPlaying, socket]);
 
     return (
