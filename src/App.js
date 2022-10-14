@@ -6,16 +6,19 @@ import { Dialog } from './components';
 import { Theme } from './context/ThemeProvider';
 import Root from './routes/Root';
 import Game from './routes/Game';
+import ErrorPage from './routes/ErrorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <Root />,
+        errorElement: <ErrorPage />,
     },
     {
         path: 'game',
-        element: <Game />
+        element: <Game />,
+        errorElement: <ErrorPage />,
     },
 ]);
 
