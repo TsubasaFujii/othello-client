@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { useSetRecoilState } from 'recoil';
-import { io } from 'socket.io-client';
+import { Manager } from 'socket.io-client';
 import { gameState } from '../recoil/game/atom';
 import { useDialog } from './useDialog';
 import { getPlayerColor } from '../JS/game';
+
+const RECONNECTION_ATTEMPTS = 3;
 
 export function useSocket() {
     const [socket, setSocket] = useState(null);
@@ -12,13 +14,9 @@ export function useSocket() {
     const dialog = useDialog();
 
     useEffect(() => {
-        const newSocket = io(process.env.BACKEND_URL, {
-            forceNew: true,
-            withCredentials: true,
-        });
-
-        newSocket.on('user:ready', ({message}) => {
-        });
+        const manager = new Manager('https://othello-server-bp5c.onrender.com' /* process.env.BACKEND_URL */)
+        const newSocket = manager.socket('/');
+        manager.reconnectionAttempts([RECONNECTION_ATTEMPTS]);
 
         newSocket.on('game:pending', (data) => {
             const { code } = data;
@@ -118,6 +116,13 @@ export function useSocket() {
                 isPending: false,
                 code: null,
                 result: null,
+            });
+        });
+
+        newSocket.io.on('reconnect_failed', () => {
+            dialog({
+                message: 'Something went wrong. Can\t connect to the server.',
+                confirmation: true,
             });
         });
 
