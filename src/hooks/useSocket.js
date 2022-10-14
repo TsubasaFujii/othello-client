@@ -14,7 +14,7 @@ export function useSocket() {
     const dialog = useDialog();
 
     useEffect(() => {
-        const manager = new Manager('https://othello-server-bp5c.onrender.com' /* process.env.BACKEND_URL */)
+        const manager = new Manager(process.env.BACKEND_URL);
         const newSocket = manager.socket('/');
         manager.reconnectionAttempts([RECONNECTION_ATTEMPTS]);
 
