@@ -9,7 +9,7 @@ import Reception from './Reception';
 import WaitingRoom from './WaitingRoom';
 
 export default function Root() {
-    const socket = useContext(SocketContext);
+    const { socket } = useContext(SocketContext);
     const { isPlaying, isPending, code } = useRecoilValue(gameState);
     const navigate = useNavigate();
 

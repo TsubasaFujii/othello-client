@@ -5,10 +5,10 @@ export const SocketContext = createContext();
 
 export function SocketProvider(props) {
     const { children } = props;
-    const socket = useSocket();
+    const value = useSocket();
 
     return (
-        <SocketContext.Provider value={socket}>
+        <SocketContext.Provider value={value}>
             {children}
         </SocketContext.Provider>
     )

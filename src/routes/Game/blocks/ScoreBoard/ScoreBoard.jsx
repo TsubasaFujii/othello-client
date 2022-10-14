@@ -11,7 +11,7 @@ import ScorePanel from './ScorePanel';
 
 export default function ScoreBoard() {
     const { order } = useRecoilValue(gameState);
-    const socket = useContext(SocketContext);
+    const { socket } = useContext(SocketContext);
     const score = useScore();
     const { color } = useMemo(() => {
         if (!socket || !order) {

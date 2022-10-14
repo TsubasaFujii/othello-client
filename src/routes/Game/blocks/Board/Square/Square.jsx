@@ -9,7 +9,7 @@ import { Wrapper } from './styled';
 
 export default function Square(props) {
     const { takenBy, row, col, isAvailable } = props;
-    const socket = useContext(SocketContext);
+    const { socket } = useContext(SocketContext);
     const { isPlayerTurn, order } = useRecoilValue(gameState);
 
     function placeDisc(position) {

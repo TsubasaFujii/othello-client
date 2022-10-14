@@ -10,7 +10,7 @@ import { Board } from './blocks/Board';
 import { Wrapper } from './styled';
 
 export default function Game() {
-    const socket = useContext(SocketContext);
+    const { socket } = useContext(SocketContext);
     const { board, isPlaying } = useRecoilValue(gameState);
     const navigate = useNavigate();
 

@@ -13,6 +13,10 @@ export function useSocket() {
     const setGameState = useRef(useSetRecoilState(gameState));
     const dialog = useDialog();
 
+    function resetSocket() {
+        setSocket(null)
+    }
+
     useEffect(() => {
         const manager = new Manager(process.env.REACT_APP_BACKEND_URL);
         const newSocket = manager.socket('/');
@@ -132,5 +136,5 @@ export function useSocket() {
         //eslint-disable-next-line
     }, []);
 
-    return socket;
+    return { socket, resetSocket };
 }

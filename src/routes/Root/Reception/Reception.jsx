@@ -8,7 +8,7 @@ export default function Reception() {
     const [inputValue, setInputValue] = useState({
         code: ''
     });
-    const socket = useContext(SocketContext);
+    const { socket } = useContext(SocketContext);
 
     function createNewGame() {
         socket.emit('new_game');
