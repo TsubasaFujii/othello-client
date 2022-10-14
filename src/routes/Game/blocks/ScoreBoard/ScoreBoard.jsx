@@ -12,9 +12,15 @@ import ScorePanel from './ScorePanel';
 export default function ScoreBoard() {
     const { order } = useRecoilValue(gameState);
     const socket = useContext(SocketContext);
-    const { color } = useMemo(() => getPlayerColor(order, socket.id), [socket, order]);
     const score = useScore();
+    const { color } = useMemo(() => {
+        if (!socket || !order) {
+            return null;
+        }
+        return getPlayerColor(order, socket.id);
+    }, [socket, order]);
 
+    if (!color) return;
     return (
         <Aside>
             <ScorePanel color='white' playerColor={color === 'white'} score={score.white} />
