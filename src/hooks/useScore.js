@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useRecoilValue } from 'recoil';
 import { gameState } from '../recoil/game/atom';
 
-export function useScore() {
+export default function useScore() {
     const [score, setScore] = useState({
         white: 0,
         black: 0,
