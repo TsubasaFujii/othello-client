@@ -36,7 +36,8 @@ export default function Reception() {
     if (isConnecting) {
         return (
             <div>
-                Loading...
+                Connecting to the server...<br />
+                (It takes a little while for the server to start.)
             </div>
         )
     }
