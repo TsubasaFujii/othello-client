@@ -1,10 +1,10 @@
 import { useContext, useMemo } from "react";
 import { useRecoilValue } from 'recoil';
 
-import { SocketContext } from '../../../../context/SocketProvider';
-import { useScore } from '../../../../hooks/useScore';
-import { gameState } from '../../../../recoil/game/atom';
-import { getPlayerColor } from '../../../../JS/game';
+import { SocketContext } from '../../../context/SocketProvider';
+import { gameState } from '../../../recoil/game/atom';
+import { getPlayerColor } from '../../../JS/game';
+import useScore from '../../../hooks/useScore';
 
 import { Aside } from './styled';
 import ScorePanel from './ScorePanel';

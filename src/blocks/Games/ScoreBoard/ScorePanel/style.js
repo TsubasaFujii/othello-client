@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Large } from '../../../../../components';
+import { Large } from '../../../../components';
 
 export const Points = styled(Large)`
     grid-column: 1 / span 3;

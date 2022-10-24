@@ -5,9 +5,9 @@ import { useNavigate } from 'react-router-dom';
 import { gameState } from '../../recoil/game/atom';
 import { SocketContext } from '../../context/SocketProvider';
 
-import { ScoreBoard } from './blocks/ScoreBoard';
-import { Board } from './blocks/Board';
+
 import { Wrapper } from './styled';
+import { Board, ScoreBoard } from '../../blocks/Games';
 
 export default function Game() {
     const { socket } = useContext(SocketContext);

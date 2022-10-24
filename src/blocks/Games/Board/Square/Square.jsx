@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useRecoilValue } from 'recoil';
 
-import { SocketContext } from '../../../../../context/SocketProvider';
-import { gameState } from '../../../../../recoil/game/atom';
+import { SocketContext } from '../../../../context/SocketProvider';
+import { gameState } from '../../../../recoil/game/atom';
 
 import { Wrapper } from './styled';
 

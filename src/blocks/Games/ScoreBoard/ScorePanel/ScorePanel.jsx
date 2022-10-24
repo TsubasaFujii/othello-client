@@ -1,6 +1,7 @@
 import { useRecoilValue } from 'recoil';
 import { useTheme } from 'styled-components';
-import { gameState } from '../../../../../recoil/game/atom';
+
+import { gameState } from '../../../../recoil/game/atom';
 
 import { Wrapper, Points, Title, Disc } from './style';
 

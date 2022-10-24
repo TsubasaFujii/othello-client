@@ -1,6 +1,6 @@
 import { useRecoilValue } from 'recoil';
 
-import { gameState } from '../../../../recoil/game/atom';
+import { gameState } from '../../../recoil/game/atom';
 
 import { Wrapper } from './styled';
 import { Square } from './Square';
