@@ -1,7 +1,11 @@
 import { useContext, useState } from 'react';
+import { useRecoilValue } from 'recoil';
+
+import { SocketContext } from '../../../context/SocketProvider';
+import { gameState } from '../../../recoil/game/atom';
+
 import { Large } from '../../../components';
 import { Button } from '../../../components/Button';
-import { SocketContext } from '../../../context/SocketProvider';
 import { FlexRow, Input, Left, Wrapper } from './styled';
 
 export default function Reception() {
@@ -9,6 +13,7 @@ export default function Reception() {
         code: ''
     });
     const { socket } = useContext(SocketContext);
+    const { isConnecting } = useRecoilValue(gameState);
 
     function createNewGame() {
         socket.emit('new_game');
@@ -27,6 +32,15 @@ export default function Reception() {
             code: target.value
         }))
     }
+
+    if (isConnecting) {
+        return (
+            <div>
+                Loading...
+            </div>
+        )
+    }
+
     return (
         <Wrapper>
             <Large>Othello</Large>

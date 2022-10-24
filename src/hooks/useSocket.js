@@ -22,6 +22,13 @@ export function useSocket() {
         const newSocket = manager.socket('/');
         manager.reconnectionAttempts([RECONNECTION_ATTEMPTS]);
 
+        newSocket.on('user:ready', () => {
+            setGameState.current(prev => ({
+                ...prev,
+                isConnecting: false,
+            }));
+        });
+
         newSocket.on('game:pending', (data) => {
             const { code } = data;
             setGameState.current(prev => ({
