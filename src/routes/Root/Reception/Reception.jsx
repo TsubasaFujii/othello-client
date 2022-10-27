@@ -30,7 +30,7 @@ export default function Reception() {
         }))
     }
 
-    if (!socket.connected) {
+    if (socket && !socket.connected) {
         return (
             <div>
                 Connecting to the server...<br />
