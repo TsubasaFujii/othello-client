@@ -149,6 +149,6 @@ export function useSocket() {
         // dialog shouldn't be in the list
         //eslint-disable-next-line
     }, []);
-    console.log(socket)
+
     return { socket, resetSocket };
 }
