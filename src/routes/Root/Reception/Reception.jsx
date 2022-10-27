@@ -1,8 +1,6 @@
 import { useContext, useState } from 'react';
-import { useRecoilValue } from 'recoil';
 
 import { SocketContext } from '../../../context/SocketProvider';
-import { gameState } from '../../../recoil/game/atom';
 
 import { Large } from '../../../components';
 import { Button } from '../../../components/Button';
@@ -13,7 +11,6 @@ export default function Reception() {
         code: ''
     });
     const { socket } = useContext(SocketContext);
-    const { isConnecting } = useRecoilValue(gameState);
 
     function createNewGame() {
         socket.emit('new_game');
@@ -33,7 +30,7 @@ export default function Reception() {
         }))
     }
 
-    if (isConnecting) {
+    if (!socket.connected) {
         return (
             <div>
                 Connecting to the server...<br />

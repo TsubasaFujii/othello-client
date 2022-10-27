@@ -25,7 +25,6 @@ export function useSocket() {
         newSocket.on('user:ready', () => {
             setGameState.current(prev => ({
                 ...prev,
-                isConnecting: false,
             }));
         });
 
