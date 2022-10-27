@@ -91,13 +91,20 @@ export function useSocket() {
             });
         });
 
-        newSocket.on('game:ended', ({result}) => {
+        newSocket.on('game:ended', ({board}) => {
             setGameState.current(prev => ({
                 ...prev,
-                result: result,
-                isPlaying: false,
+                board: board,
             }));
-            console.log(result);
+        });
+
+        newSocket.on('game:result', ({hasWon, result}) => {
+            console.log(hasWon, result)
+            dialog({
+                message: `Game Ended: ${result}`,
+                isPlaying: false,
+                confirmation: true,
+            });
         });
 
         newSocket.on('game:not_found', ({message}) => {
@@ -142,6 +149,6 @@ export function useSocket() {
         // dialog shouldn't be in the list
         //eslint-disable-next-line
     }, []);
-
+    console.log(socket)
     return { socket, resetSocket };
 }

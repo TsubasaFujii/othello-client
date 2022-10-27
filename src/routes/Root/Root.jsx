@@ -17,6 +17,8 @@ export default function Root() {
         if (isPlaying) {
             navigate('game');
             socket.emit('ready_game');
+        } else {
+            navigate('/');
         }
         // navigate shouldn't be in the list
         //eslint-disable-next-line
