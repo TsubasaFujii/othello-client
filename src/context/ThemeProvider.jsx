@@ -13,13 +13,17 @@ const colors = {
     overlay: '#8080807e',
 }
 
+const minScreenSize = '320px';
+
 const viewport = {
+    xs: 'screen and (min-width: 320px)',
     sm: 'screen and (min-width: 414px)'
 }
 
 const theme = {
     colors,
     viewport,
+    minScreenSize
 }
 
 export function Theme(props) {
