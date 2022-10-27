@@ -17,7 +17,7 @@ export const Points = styled(Large)`
 `;
 
 export const Wrapper = styled.div`
-    min-width: calc(100% / 3);
+    width: max-content;
     padding: 1rem 0;
 
     display: grid;
