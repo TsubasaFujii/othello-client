@@ -12,8 +12,9 @@ export const Overlay = styled.div`
 `;
 
 export const Content = styled.div`
+    min-width: ${({ theme }) => `calc(${theme.minScreenSize} - 2rem)`};
     padding: 2rem;
-    
+
     position: absolute;
     top: 50%;
     left: 50%;
