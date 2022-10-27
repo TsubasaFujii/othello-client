@@ -24,7 +24,23 @@ export const GlobalStyles = createGlobalStyle`
 
     body {
         width: 100vw;
+        min-width: ${({ theme }) => theme.minScreenSize};
         overflow-x: hidden;
+
+        @media ${({ theme }) => theme.viewport.xs} {
+            overflow-x: auto;
+        }
+    }
+
+    main {
+        width: 100vw;
+        height: 100vh;
+        min-width: ${({ theme }) => theme.minScreenSize};
+        overflow-x: hidden;
+
+        @media ${({ theme }) => theme.viewport.xs} {
+            overflow-x: auto;
+        }
     }
     
     // Typography
